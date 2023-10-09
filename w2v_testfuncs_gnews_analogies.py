@@ -22,8 +22,7 @@ from sklearn.decomposition import PCA
 from sklearn.metrics.pairwise import cosine_similarity as cossim
 
 def cossim2(v1, v2, signed = True):
-    """this is the code from the study itself; if it was me, I'd just import
-    the cossim function from sklearn - see import call above"""
+    """this function calculates cosine similarity between two vectors"""
     c = np.dot(v1, v2)/np.linalg.norm(v1)/np.linalg.norm(v2)
     if not signed:
         return abs(c)
