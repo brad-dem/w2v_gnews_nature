@@ -260,8 +260,10 @@ fig.update_layout(width = 900, height = 800)
 plotly.io.write_image(fig, 'nature-people_analogies_w2v-gnews_blue_red.png', format='png')
 
 def analogy_cloud(vec1, topn = 100, excludes = []):
-    """takes a vector as input -- ideally one that's an anlogy/relationship between
-    two terms/concepts -- and runs through """
+    """takes an analogy/relationship vector between two terms/concepts,
+    creates random two-term vectors from the top 5000 terms excluding any specified terms,
+    and calculates cosine similarity between each random pair and the target pair,
+    creating a distribution """
     cos_dict = {}
     top_terms = w2v_gnews.index_to_key[:topn]
     if len(excludes) > 0:
